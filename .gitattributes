@@ -1,0 +1,4 @@
+*.php text eol=lf
+# Directories and files we do not want to distribute
+/test
+/Analysis
