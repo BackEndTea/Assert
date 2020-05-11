@@ -130,4 +130,4 @@ jobs:
         run: $(which composer) install --no-interaction --no-progress --no-suggest
 
       - name: "Run tests with phpunit/phpunit"
-        run: bin/phpunit
+        run: vendor/bin/phpunit
