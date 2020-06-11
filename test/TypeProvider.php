@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace BackEndTea\Assert\Test;
 
 use Generator;
+use stdClass;
 use const INF;
 use const PHP_INT_MAX;
 use const PHP_INT_MIN;
@@ -88,5 +89,35 @@ final class TypeProvider
         yield [-12.0];
         yield [16.2];
         yield [18.0];
+    }
+
+    /**
+     * @return Generator<array<mixed>>
+     */
+    public static function array(): Generator
+    {
+        yield [
+            [1.7],
+            [true],
+            [false],
+            ['1.7'],
+        ];
+
+        yield [
+            ['0.0', '1.7'],
+            [INF, PHP_INT_MAX, PHP_INT_MIN],
+        ];
+
+        yield [
+            [new stdClass(), '0.0', 'TEST_ARRAY'],
+        ];
+    }
+
+    /**
+     * @return Generator<array<object>>
+     */
+    public static function object(): Generator
+    {
+        yield [new stdClass()];
     }
 }
